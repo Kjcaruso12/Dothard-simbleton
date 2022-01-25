@@ -20,17 +20,10 @@ document
 
                         Example: business.companyName.includes(keyPressEvent.target.value)
                     */
-                    const agentArr = purchasingAgents()
                     const newArray = newAgentsArray(getBusinesses())
 
-                    let foundAgent = agentArr.find((agent) => {
-                        return agent.nameFirst.includes(keyPressEvent.target.value)})
-                    for (const agent of newArray) {
-                        if (agent.fullName.includes(foundAgent.nameFirst)) {
-                            foundAgent = agent
-                        }
-                    }    
-
+                    let foundAgent = newArray.find((agent) => {
+                        return agent.fullName.includes(keyPressEvent.target.value)})  
 
                     /** implement .find() method here */
                     companySearchResultArticle.innerHTML = AgentFinder(foundAgent);
