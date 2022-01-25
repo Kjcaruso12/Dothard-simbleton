@@ -30,4 +30,16 @@ export const Agents = (agentObj) => {
     `
 }
 
+export const AgentFinder = (agentObj) => {
+    return `
+        <section class="agent_info">
+            <h2 class="agent_name">${agentObj.fullName}</h2>
+            <div class="company_agent">
+                <h3>${agentObj.company}</h3>\n
+                <h3>${agentObj.phoneNumber}</h3>
+            </div>
+        </section>
+    `
+}
+
 
