@@ -1,4 +1,4 @@
-import { newAgentsArray } from "./agents.js";
+import { AgentFinder, newAgentsArray } from "./agents.js";
 import { Business, Company } from "./Business.js";
 import { getBusinesses, purchasingAgents } from "./database.js"
 
@@ -20,12 +20,20 @@ document
 
                         Example: business.companyName.includes(keyPressEvent.target.value)
                     */
-                    const businessArr = getBusinesses()
+                    const agentArr = purchasingAgents()
+                    const newArray = newAgentsArray(getBusinesses())
 
-                    const foundBusiness = businessArr.find((business) => {
-                        return business.companyName.includes(keyPressEvent.target.value)})
+                    let foundAgent = agentArr.find((agent) => {
+                        return agent.nameFirst.includes(keyPressEvent.target.value)})
+                    for (const agent of newArray) {
+                        if (agent.fullName.includes(foundAgent.nameFirst)) {
+                            foundAgent = agent
+                        }
+                    }    
+
+
                     /** implement .find() method here */
-                    companySearchResultArticle.innerHTML = Business(foundBusiness);
+                    companySearchResultArticle.innerHTML = AgentFinder(foundAgent);
                     parentHTML.innerHTML = ''
                 }
         });

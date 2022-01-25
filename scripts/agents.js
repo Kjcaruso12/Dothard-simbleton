@@ -4,7 +4,7 @@ export const newAgentsArray = (businessArray) => {
     const newArray = []
     const agentArray = purchasingAgents()
     for (const agent of agentArray) {
-        let agentObj = {}
+        const agentObj = {}
         for (const business of businessArray) {
             if (agent.nameFirst === business.purchasingAgent.nameFirst) {
                 agentObj.fullName = `${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}`
